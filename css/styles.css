@@ -4,30 +4,3 @@
     box-sizing: border-box;
 }
 
-.header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.nav {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-}
-
-.nav ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-}

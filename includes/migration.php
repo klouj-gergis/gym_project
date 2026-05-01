@@ -1,8 +1,10 @@
 <?php
 
-$pdo = require_once 'db.php';
+require 'db.php';
 
-function createUsersTable(PDO $pdo) {
+$pdo = connect();
+
+function createUsersTable( $pdo) {
    
     
     $sql = "CREATE TABLE IF NOT EXISTS users (
@@ -10,6 +12,7 @@ function createUsersTable(PDO $pdo) {
         username VARCHAR(255) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL UNIQUE,
+        role VARCHAR(50) NOT NULL DEFAULT 'user',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
     
@@ -22,7 +25,7 @@ function createUsersTable(PDO $pdo) {
 
 };
 
-function createMembersTable(PDO $pdo) {
+function createMembersTable( $pdo) {
     
     
     $sql = "CREATE TABLE IF NOT EXISTS members (
@@ -40,10 +43,10 @@ function createMembersTable(PDO $pdo) {
     }
 };
 
-function createMembershipsTable(PDO $pdo) {
+function createMembershipsTable( $pdo) {
     
     
-    $sql = "CREATE TABLE IF NOT EXISTS bundles (
+    $sql = "CREATE TABLE IF NOT EXISTS memberships (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         price DECIMAL(10, 2) NOT NULL,
@@ -58,7 +61,7 @@ function createMembershipsTable(PDO $pdo) {
     }
 };
 
-function migrate(PDO $pdo) {
+function migrate($pdo) {
     
     createUsersTable($pdo);
     createMembersTable($pdo);
