@@ -30,9 +30,9 @@
 
 
         if(isAdmin($user['role'])) {
-      header("Location: dashboard.php");
+      header("Location: /dashboard.php");
     } else {
-      header("Location: index.php");
+      header("Location: /");
     }
     } else {
         echo "Invalid credentials" . $user['email'];
